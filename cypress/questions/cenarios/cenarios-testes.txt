@@ -1,0 +1,70 @@
+Cenários positivos
+Cenário 01: Transferência válida com saldo suficiente
+Dado que o cliente destino é válido
+Quando o valor é inferior ao saldo disponível
+E data de efetivação válida (ex: data atual ou futura)
+Então a transferência é realizada com sucesso
+Critério de Aceite: Que a transferência seja realizada com sucesso no valor desejado
+
+Cenário 02: Transferência para outro correntista com saldo exato
+Dado que o cliente destino é válido
+Quando o valor é exato ao saldo disponível
+E data de efetivação válida (ex: data atual ou futura)
+Então a transferência é realizada com sucesso
+Critério de Aceite: Que a transferência seja realizada com sucesso no valor exato
+
+Cenário 03: Transferência futura válida
+Dado que o cliente destino é válido
+Quando o valor está dentro do saldo disponível
+E data de efetivação é futura
+Então a transferência é realizada com sucesso
+Critério de Aceite: Que a transferência seja realizada com sucesso na data futura
+
+Cenário 04: Cancelar uma transferência antes da confirmação
+Dado que o cliente destino é válido
+E data de efetivação válida (ex: data atual ou futura)
+Quando seleciona em cancelar
+Então a transferência não deve ser realizada
+Critério de Aceite: Que a transferência seja cancelada e o valor não saia da conta
+
+Cenário 05: Validar que o botão transferir está funcionando corretamente
+Dado que o cliente destino é válido
+E data de efetivação válida (ex: data atual ou futura)
+Quando seleciona em transferir
+Então a transferência deve ser realizada
+Critério de Aceite: Que a transferência seja realizada com sucesso
+
+Cenários negativos
+Cenário 06: Transferência com saldo insuficiente
+Dado que o cliente destino é válido
+Quando o valor é superior ao saldo disponível
+E data de efetivação válida (ex: data atual ou futura)
+Então a transferência não é realizada
+Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que o saldo é insuficiente
+
+Cenário 07: Transferência com destino inválido
+Dado que o cliente destino é inválido
+Quando o valor é inferior ao saldo disponível
+E data de efetivação válida (ex: data atual ou futura)
+Então a transferência não é realizada
+Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que a conta de destino é inválida
+
+Cenário 08: Transferência com valor inválido
+Dado que o cliente destino é inválido
+Quando o campo valor não é preenchido
+E data de efetivação válida (ex: data atual ou futura)
+Então a transferência não é realizada
+Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que o valor é um campo obrigatório
+
+Cenário 09: Transferência sem preencher os campos obrigatórios
+Dado que o cliente não preencheu a conta destino
+Quando o campo valor não é preenchido
+E data de efetivação não é preenchida
+Então a transferência não é realizada
+Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que os campos são obrigatórios
+
+Cenário 19: Validar que os campos devem ser preenchidos somente com números
+Dado que o cliente está preenchendo todos os campos com números, letras e caracteres especiais
+Quando seleciona transferir
+Então a transferência não deve ser realizada
+Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que os campos são numéricos

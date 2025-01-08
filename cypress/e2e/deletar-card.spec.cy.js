@@ -9,7 +9,7 @@ it('Deletar um card', () => {
       token: Cypress.env('trello_api_token')
     }
   }).then((response) => {
-    const boardId = response.body[0].id; // Seleciona o primeiro board da lista
+    const boardId = response.body[0].id;
 
     cy.request({
       method: 'GET',
@@ -19,7 +19,7 @@ it('Deletar um card', () => {
         token: Cypress.env('trello_api_token')
       }
     }).then((listsResponse) => {
-      const listId = listsResponse.body[0].id; // Seleciona a primeira lista do board
+      const listId = listsResponse.body[0].id;
 
       cy.request({
         method: 'GET',
@@ -30,7 +30,7 @@ it('Deletar um card', () => {
         }
       }).then((cardsResponse) => {
         if (cardsResponse.body.length > 0) {
-          const cardId = cardsResponse.body[0].id; // Seleciona o primeiro card da lista
+          const cardId = cardsResponse.body[0].id;
 
           cy.request({
             method: 'DELETE',

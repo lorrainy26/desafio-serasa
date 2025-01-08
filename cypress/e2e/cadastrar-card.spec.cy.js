@@ -11,8 +11,7 @@ it('Criando um novo card', () => {
       token: apiToken
     }
   }).then((response) => {
-    const boardId = response.body[0].id; // Seleciona o primeiro board da lista
-
+    const boardId = response.body[0].id;
     cy.request({
       method: 'GET',
       url: `${Cypress.env('trello_boards_url')}/${boardId}/lists`,
@@ -21,8 +20,7 @@ it('Criando um novo card', () => {
         token: apiToken
       }
     }).then((listsResponse) => {
-      const listId = listsResponse.body[0].id; // Seleciona a primeira lista do board
-
+      const listId = listsResponse.body[0].id;
       cy.request({
         method: 'POST',
         url: Cypress.env('trello_cards_url'),

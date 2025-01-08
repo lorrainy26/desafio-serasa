@@ -9,7 +9,7 @@ it('Deletar um board', () => {
       token: Cypress.env('trello_api_token')
     }
   }).then((response) => {
-    const boardId = response.body[0].id; // Seleciona o primeiro board da lista
+    const boardId = response.body[0].id;
     cy.request({
       method: 'DELETE',
       url: `${Cypress.env('trello_boards_url')}/${boardId}`,
