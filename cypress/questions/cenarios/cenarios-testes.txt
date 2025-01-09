@@ -63,7 +63,7 @@ E data de efetivação não é preenchida
 Então a transferência não é realizada
 Critério de Aceite: Que a transferência não seja realizada e seja exibida uma mensagem informando que os campos são obrigatórios
 
-Cenário 19: Validar que os campos devem ser preenchidos somente com números
+Cenário 10: Validar que os campos devem ser preenchidos somente com números
 Dado que o cliente está preenchendo todos os campos com números, letras e caracteres especiais
 Quando seleciona transferir
 Então a transferência não deve ser realizada
